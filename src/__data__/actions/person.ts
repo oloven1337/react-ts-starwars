@@ -50,6 +50,8 @@ export const getDataFromPerson = (id: number) => async (dispatch: Function) => {
         })
 
     } catch (e) {
-        console.log(e)
+        dispatch({
+            type: types.FETCHING_PERSON_ERROR
+        })
     }
 }

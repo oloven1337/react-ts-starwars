@@ -20,7 +20,6 @@ interface Results {
 }
 
 export const getPeople = (id: number) => async (dispatch: Function) => {
-    console.log(id)
     try {
         dispatch({
             type: types.FETCHING_PEOPLE_REQUEST
@@ -32,8 +31,6 @@ export const getPeople = (id: number) => async (dispatch: Function) => {
             item.id = i + 1
             return item
         })
-
-        console.log(data)
 
         dispatch({
             type: types.FETCHING_PEOPLE_SUCCESS,

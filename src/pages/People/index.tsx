@@ -1,10 +1,11 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
-import {CardStyled, WrapperPeopleCardsStyled} from './style';
 import {getPeople} from "../../__data__/actions/people";
 import {getPeopleSelector, isLoadingSelector} from "../../__data__/selectors/people";
 import {Loader} from "../../components/Loader";
+
+import {CardStyled, WrapperPeopleCardsStyled} from './style';
 
 export const People: React.FC = () => {
     const [pageNumber, setPageNumber] = React.useState(1)
@@ -16,8 +17,7 @@ export const People: React.FC = () => {
         dispatch(getPeople(pageNumber))
     }, [dispatch, pageNumber])
 
-    const f = () => {
-        console.log('ss')
+    const handleNextPage = () => {
         setPageNumber(prevState => (
             prevState + 1
         ))
@@ -30,7 +30,7 @@ export const People: React.FC = () => {
     return (
         <>
             <h1>People page</h1>
-            <button onClick={f}>click</button>
+            <button onClick={handleNextPage}>click</button>
             <div style={{margin: '0 auto'}}>
                 <WrapperPeopleCardsStyled>
                     {
