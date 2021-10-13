@@ -3,6 +3,6 @@ import React from 'react';
 export const Character = (props) => {
     console.log(props.match.params)
     return (
-    <h1>da</h1>
+        <h1>da</h1>
     );
 };
