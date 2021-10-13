@@ -1,6 +1,15 @@
 import styled from "styled-components";
 import {Link} from 'react-router-dom'
 
+export const Wrapper = styled.div`
+  margin: 0 auto;
+  text-align: center;
+
+  h1 {
+    color: white;
+  }
+`
+
 export const WrapperPeopleCardsStyled = styled.div`
   display: flex;
   flex-wrap: wrap;

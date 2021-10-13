@@ -4,6 +4,7 @@ export const WrapperHeader = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  max-width: 400px;
 
   img {
     &:hover {
@@ -16,9 +17,15 @@ export const WrapperHeader = styled.div`
     display: flex;
     flex-grow: 2;
     list-style-type: none;
-    
+    justify-content: space-between;
+
     li {
-      margin-right: 50px;
+      padding: 4px;
+      &:hover {
+        transition: .3s;
+        border-radius: 3px;
+        box-shadow: inset 0 0 20px #7F055F;
+      }
     }
   }
 
@@ -29,8 +36,7 @@ export const WrapperHeader = styled.div`
     font-weight: bold;
 
     &:hover {
-      transform: scale(1.05);
-      text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+      transform: scale(1.01);
       transition: .3s;
     }
   }

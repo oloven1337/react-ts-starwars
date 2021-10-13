@@ -1,8 +1,10 @@
 import React from 'react';
+import {useHistory} from "react-router-dom";
 
 import {getDataFromPerson} from "../../__data__/actions/person";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserData} from "../../__data__/selectors/person";
+import {ButtonStyled} from '../../components/Button'
 
 import {WrapperStyled} from "./style";
 
@@ -16,6 +18,7 @@ interface Props {
 
 export const Person: React.FC<Props> = (props) => {
     const id = props.match.params.id
+    const history = useHistory()
     const dispatch = useDispatch()
     const userData = useSelector(getUserData)
 
@@ -23,8 +26,13 @@ export const Person: React.FC<Props> = (props) => {
         dispatch(getDataFromPerson(id))
     }, [dispatch, id])
 
+    const handleGoBack = () => {
+        history.goBack()
+    }
+
     return (
         <>
+            <ButtonStyled onClick={handleGoBack}>Go back</ButtonStyled>
             <WrapperStyled>
                 <div>
                     <img src='https://starwars-visualguide.com/assets/img/characters/3.jpg' alt=""/>
