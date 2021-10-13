@@ -2,10 +2,12 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
-import {peoples} from "./reducers/peoples";
+import {people} from "./reducers/people";
+import {person} from './reducers/person'
 
 const reducers = combineReducers({
-    peoples
+    people,
+    person
 })
 
 export const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))

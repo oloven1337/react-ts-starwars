@@ -1,10 +1,10 @@
 interface IState {
-    peoples: {
+    people: {
         error: false
         isFetching: false
-        peoples: any[]
+        people: any[]
     }
 }
 
-export const getPeoplesSelector = (state: IState) => state.peoples.peoples
-export const isLoadingSelector= (state: IState) => state.peoples.isFetching
+export const getPeopleSelector = (state: IState) => state.people.people
+export const isLoadingSelector= (state: IState) => state.people.isFetching

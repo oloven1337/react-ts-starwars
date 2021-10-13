@@ -1,13 +1,13 @@
 import * as types from '../action-types'
 
 interface IState {
-    peoples: any[],
+    people: any[],
     isFetching: boolean
     error: boolean
 }
 
 const initialState: IState = {
-    peoples: [],
+    people: [],
     isFetching: false,
     error: false
 }
@@ -17,22 +17,22 @@ export interface Action {
     payload?: any
 }
 
-export const peoples = (state = initialState, action: Action) => {
+export const people = (state = initialState, action: Action) => {
     switch (action.type) {
-        case types.FETCHING_PEOPLES_REQUEST: {
+        case types.FETCHING_PEOPLE_REQUEST: {
             return {
                 ...state,
                 isFetching: true
             }
         }
-        case types.FETCHING_PEOPLES_SUCCESS: {
+        case types.FETCHING_PEOPLE_SUCCESS: {
             return {
                 ...state,
                 isFetching: false,
-                peoples: action.payload
+                people: action.payload
             }
         }
-        case types.FETCHING_PEOPLES_ERROR: {
+        case types.FETCHING_PEOPLE_ERROR: {
             return {
                 ...state,
                 isFetching: false,
