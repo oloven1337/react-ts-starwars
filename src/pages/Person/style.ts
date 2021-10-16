@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+export const WrapperPersonStyled = styled.div`
+  h1 {
+    color: white;
+  }
+`
+
 export const WrapperStyled = styled.div`
   display: flex;
   align-items: center;
@@ -7,16 +13,6 @@ export const WrapperStyled = styled.div`
 
   img {
     width: 200px;
-  }
-
-  img + div {
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    background-color: white;
-    margin-top: 10px;
-    border-radius: 2px;
-    color: #7F055F;
   }
 
   ul {

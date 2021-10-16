@@ -1,48 +1,20 @@
 import axios from "axios";
+import {Dispatch, Action} from 'redux';
 
 import * as types from '../action-types'
 
-interface UserData {
-    name: string,
-    height: string,
-    gender: string,
-    mass: string,
-    eye_color: string,
-    birth_year: string
-}
+type FetchingPersonRequest = Action<typeof types.FETCHING_PERSON_REQUEST>
+type FetchingPersonSuccess = Action<typeof types.FETCHING_PERSON_SUCCESS>
+type FetchingPersonError = Action<typeof types.FETCHING_PERSON_ERROR>
+type FetchingPerson = FetchingPersonRequest | FetchingPersonSuccess | FetchingPersonError
 
-export const getDataFromPerson = (id: number) => async (dispatch: Function) => {
+export const getDataFromPerson = (id: number) => async (dispatch: Dispatch<FetchingPerson>) => {
     try {
         dispatch({
             type: types.FETCHING_PERSON_REQUEST
         })
 
-        // const {data} = await axios.get(`https://swapi.dev/api/people/${id}`)
-
-        // const newData =
-
-        // console.log(newData)
-        // const newData = {}
-        // const newData = {}
-
-        //     name: '',
-        //     height: '',
-        //     gender: '',
-        //     mass: '',
-        //     eye_color: '',
-        //     birth_year: ''
-
-        const data = {
-            birth_year: "33BBY",
-            created: "2014-12-10T15:11:50.376000Z",
-            edited: "2014-12-20T21:17:50.311000Z",
-            eye_color: "red",
-            gender: "n/a",
-            hair_color: "n/a",
-            height: "96",
-            mass: "32",
-            name: "R2-D2"
-        }
+        const {data} = await axios.get(`https://swapi.dev/api/people/${id}`)
 
         dispatch({
             type: types.FETCHING_PERSON_SUCCESS,

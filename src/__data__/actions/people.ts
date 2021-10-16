@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {Dispatch, Action} from 'redux';
 
 import * as types from '../action-types'
 
@@ -19,7 +20,12 @@ interface Results {
     }
 }
 
-export const getPeople = (id: number) => async (dispatch: Function) => {
+type FetchingPeopleRequest = Action<typeof types.FETCHING_PEOPLE_REQUEST>
+type FetchingPeopleSuccess = Action<typeof types.FETCHING_PEOPLE_SUCCESS>
+type FetchingPeopleError = Action<typeof types.FETCHING_PEOPLE_ERROR>
+type FetchingPeople = FetchingPeopleRequest | FetchingPeopleSuccess | FetchingPeopleError
+
+export const getPeople = (id: number) => async (dispatch: Dispatch<FetchingPeople>) => {
     try {
         dispatch({
             type: types.FETCHING_PEOPLE_REQUEST

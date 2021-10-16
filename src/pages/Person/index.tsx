@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getUserData} from "../../__data__/selectors/person";
 import {ButtonStyled} from '../../components/Button'
 
-import {WrapperStyled} from "./style";
+import {WrapperStyled, WrapperPersonStyled} from "./style";
 
 interface Props {
     match: {
@@ -32,12 +32,14 @@ export const Person: React.FC<Props> = (props) => {
 
     return (
         <>
-            <ButtonStyled onClick={handleGoBack}>Go back</ButtonStyled>
+            <WrapperPersonStyled>
+                <h1>Person - {userData.name}</h1>
+                <ButtonStyled onClick={handleGoBack}>Go back</ButtonStyled>
+            </WrapperPersonStyled>
             <WrapperStyled>
                 <div>
                     <img src='https://starwars-visualguide.com/assets/img/characters/3.jpg' alt=""/>
-                    <div>name: {userData.name}</div>
-                </div>
+                 </div>
                 <div>
                     <ul>
                         <li>
